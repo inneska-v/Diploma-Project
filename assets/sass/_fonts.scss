@@ -1,0 +1,23 @@
+@font-face {
+   font-family: "Roboto";
+   src: local("Roboto"), local("Roboto"),
+      url("../fonts/Roboto.woff") format("woff"),
+      url("../fonts/Roboto.woff2") format("woff2");
+   font-style: normal;
+   font-display: swap;
+}
+
+@font-face {
+   font-family: "Playfair Display";
+   src: local("Playfair Display"), local("Playfair Display"),
+      url("../fonts/Playfair-Display-Regular.woff") format("woff"),
+      url("../fonts/Playfair-Display-Regular.woff2") format("woff2");
+   font-style: normal;
+   font-display: swap;
+}
+
+body {
+   font-family: 'Roboto', Arial, sans-serif;
+   font-size: 18px;
+   line-height: 1.5;
+}

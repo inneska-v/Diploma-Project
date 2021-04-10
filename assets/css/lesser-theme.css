@@ -1,0 +1,517 @@
+@font-face {
+  font-family: "Roboto";
+  src: local("Roboto"), local("Roboto"), url("../fonts/Roboto.woff") format("woff"), url("../fonts/Roboto.woff2") format("woff2");
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Playfair Display";
+  src: local("Playfair Display"), local("Playfair Display"), url("../fonts/Playfair-Display-Regular.woff") format("woff"), url("../fonts/Playfair-Display-Regular.woff2") format("woff2");
+  font-style: normal;
+  font-display: swap;
+}
+
+body {
+  font-family: 'Roboto', Arial, sans-serif;
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+.header {
+  background-color: #ffffff;
+  padding: 40px 0;
+  width: 100%;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.header-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.header-menu {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.menu-item a {
+  text-decoration: none;
+  font-size: 16px;
+  padding: 12px 15px;
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.menu-item a:hover {
+  color: #000000;
+}
+
+.logo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.logo-name {
+  font-size: 28px;
+  font-weight: bold;
+  color: #000000;
+  text-transform: uppercase;
+}
+
+.container {
+  max-width: 1140px;
+  width: 90%;
+  margin: auto;
+}
+
+.hero {
+  margin-top: 2px;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.hero-title {
+  font-family: "Playfair Display", Arial, serif;
+  font-size: 36px;
+  font-weight: normal;
+  width: 751px;
+  margin: auto;
+  text-align: center;
+  padding-top: 96px;
+  color: rgba(0, 0, 0, 0.7);
+}
+
+.hero-articles {
+  margin: 0;
+  padding: 0;
+  padding-top: 96px;
+  padding-bottom: 96px;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[4];
+      grid-template-columns: repeat(4, 1fr);
+  -ms-grid-rows: (1fr)[2];
+      grid-template-rows: repeat(2, 1fr);
+  grid-column-gap: 30px;
+  grid-row-gap: 30px;
+}
+
+.hero-articles-item {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  border-radius: 4px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  overflow: hidden;
+}
+
+.hero-articles-item:hover, .hero-articles-item:focus {
+  background-color: rgba(0, 0, 0, 0.33);
+  -webkit-box-shadow: 0px 18px 43px -7px rgba(0, 0, 0, 0.33);
+          box-shadow: 0px 18px 43px -7px rgba(0, 0, 0, 0.33);
+}
+
+.hero-articles-item a {
+  text-decoration: none;
+  display: inline-block;
+}
+
+.hero-articles-item-1 {
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 2;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  grid-area: 1 / 1 / 3 / 3;
+  height: 510px;
+}
+
+.hero-articles-item-2 {
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 1;
+  -ms-grid-column: 3;
+  -ms-grid-column-span: 2;
+  grid-area: 1 / 3 / 2 / 5;
+  height: 240px;
+}
+
+.hero-articles-item-3 {
+  -ms-grid-row: 2;
+  -ms-grid-row-span: 1;
+  -ms-grid-column: 3;
+  -ms-grid-column-span: 1;
+  grid-area: 2 / 3 / 3 / 4;
+  height: 240px;
+}
+
+.hero-articles-item-4 {
+  -ms-grid-row: 2;
+  -ms-grid-row-span: 1;
+  -ms-grid-column: 4;
+  -ms-grid-column-span: 1;
+  grid-area: 2 / 4 / 3 / 5;
+  height: 240px;
+}
+
+.hero-articles-thumb {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  overflow: hidden;
+  z-index: -1;
+}
+
+.hero-articles-permalink {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.hero-articles-permalink:hover, .hero-articles-permalink:focus {
+  margin-bottom: 10px;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.hero-articles-text {
+  position: absolute;
+  padding: 30px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.hero-articles-title {
+  font-family: "Playfair Display", Arial, serif;
+  font-size: 24px;
+  color: rgba(255, 255, 255, 0.9);
+  margin: 0;
+}
+
+.hero-articles-category {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 16px;
+}
+
+.whywe {
+  padding: 96px 0;
+  background: linear-gradient(45deg, #1fb57b 0%, #258dc8 100%);
+}
+
+.whywe-title {
+  margin: 0;
+  width: 550px;
+  margin: auto;
+  font-family: "Playfair Display", Arial, serif;
+  font-size: 34px;
+  font-weight: normal;
+  text-align: center;
+  color: #ffffff;
+  margin-bottom: 20px;
+}
+
+.whywe-description {
+  width: 550px;
+  margin: auto;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 40px;
+}
+
+.whywe-features {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.whywe-features-item {
+  width: 32%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.whywe-features-icon {
+  width: 90px;
+  height: 90px;
+  color: white;
+  border: 2px solid rgba(255, 255, 255, 0.7);
+  padding: 23px;
+  border-radius: 50%;
+}
+
+.whywe-features-title {
+  font-family: "Playfair Display", Arial, serif;
+  font-size: 24px;
+  font-weight: normal;
+  color: #ffffff;
+  margin-top: 20px;
+  margin-bottom: 15px;
+}
+
+.whywe-features-text {
+  color: rgba(255, 255, 255, 0.7);
+  text-align: center;
+  margin: 0;
+}
+
+.blog-articles {
+  padding: 96px 0;
+  background: rgba(45, 64, 89, 0.06);
+}
+
+.blog-articles-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.blog-articles-title {
+  font-family: "Playfair Display", Arial, serif;
+  font-size: 34px;
+  font-weight: normal;
+  text-align: center;
+  color: rgba(0, 0, 0, 0.8);
+  margin: 0;
+  margin-bottom: 60px;
+}
+
+.blog-articles-item {
+  width: 30%;
+  text-align: center;
+  background-color: #ffffff;
+  -webkit-box-shadow: 0 9px 29px -9px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 9px 29px -9px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  border-radius: 4px;
+  padding-bottom: 20px;
+}
+
+.blog-articles-item:hover {
+  -webkit-box-shadow: 0 9px 43px -10px rgba(0, 0, 0, 0.3);
+          box-shadow: 0 9px 43px -10px rgba(0, 0, 0, 0.3);
+}
+
+.blog-articles-item-image {
+  height: 260px;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.blog-articles-item a {
+  text-decoration: none;
+}
+
+.blog-articles-item-title {
+  font-family: "Playfair Display", Arial, serif;
+  font-size: 24px;
+  font-weight: normal;
+  padding: 0 20px;
+  margin-bottom: 30px;
+}
+
+.blog-articles-permalink {
+  text-decoration: none;
+  color: rgba(0, 0, 0, 0.8);
+}
+
+.blog-articles-permalink:hover, .blog-articles-permalink:visited {
+  color: rgba(0, 0, 0, 0.8);
+}
+
+.blog-articles-text {
+  margin-bottom: 30px;
+  font-size: 18px;
+  font-weight: 400;
+  padding-right: 20px;
+  padding-left: 20px;
+}
+
+.blog-articles-button {
+  position: relative;
+  font-family: "Roboto", Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  border-radius: 30px;
+  white-space: nowrap;
+  padding: 10px 20px;
+  margin-bottom: 30px;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  font-weight: normal;
+  text-align: center;
+  cursor: pointer;
+  background: transparent;
+  color: #1FB57B;
+  border: 2px solid #1FB57B;
+  -webkit-transition: 0.35s;
+  transition: 0.35s;
+}
+
+.blog-articles-button:visited {
+  color: #1FB57B;
+}
+
+.blog-articles-button:hover {
+  border: 2px solid #23cb8a;
+  background-color: #23cb8a;
+  color: #ffffff;
+  padding-right: 45px;
+  -webkit-transition: 0.35s;
+  transition: 0.35s;
+}
+
+.blog-articles-button:hover svg {
+  visibility: visible;
+  opacity: 1;
+  right: 0;
+  fill: #ffffff;
+}
+
+.blog-articles-button svg {
+  position: absolute;
+  visibility: hidden;
+  opacity: 0;
+  right: -8px;
+  top: 50%;
+  margin-top: -8px;
+  margin-right: 15px;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+  fill: #ffffff;
+}
+
+.testimonials {
+  padding: 96px 0;
+}
+
+.testimonials-title {
+  width: 585px;
+  font-family: "Playfair Display", Arial, serif;
+  font-size: 34px;
+  font-weight: normal;
+  text-align: center;
+  color: rgba(0, 0, 0, 0.7);
+  padding: 0;
+  margin: auto;
+  margin-bottom: 20px;
+}
+
+.testimonials-description {
+  width: 585px;
+  color: #7F7F7F;
+  text-align: center;
+  padding: 0;
+  margin: auto;
+  margin-bottom: 80px;
+}
+
+.testimonials-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.testimonials-item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative;
+  width: 49%;
+  background: rgba(45, 64, 89, 0.06);
+  padding: 40px 30px;
+  border-radius: 4px;
+}
+
+.testimonials-item-quote {
+  position: absolute;
+  font-size: 50px;
+  text-align: center;
+  width: 80px;
+  height: 80px;
+  top: -40px;
+  margin: auto;
+  color: rgba(45, 64, 89, 0.5);
+  background-color: #ffffff;
+  border-radius: 50%;
+}
+
+.testimonials-item-text {
+  font-size: 20px;
+  line-height: 1.6em;
+  font-family: "Playfair Display", Arial, serif;
+  font-size: 20px;
+  font-weight: normal;
+  color: #999999;
+  text-align: center;
+  margin: 0;
+  margin-top: 10px;
+  margin-bottom: 30px;
+}
+
+.testimonials-item-author {
+  color: rgba(0, 0, 0, 0.7);
+  font-size: 17.5px;
+  line-height: 1.7;
+}
+
+.footer {
+  padding: 112px 0;
+  background-color: #262626;
+}

@@ -1,0 +1,79 @@
+.hero
+   margin-top: 2px
+   border-top: 1px solid rgba(0, 0, 0, 0.1)
+   &-title
+      font-family: "Playfair Display", Arial, serif
+      font-size: 36px
+      font-weight: normal
+      width: 751px
+      margin: auto
+      text-align: center
+      padding-top: 96px
+      color: rgba(0, 0, 0, 0.7)
+   &-articles
+      margin: 0
+      padding: 0
+      padding-top: 96px
+      padding-bottom: 96px
+      display: grid
+      grid-template-columns: repeat(4, 1fr)
+      grid-template-rows: repeat(2, 1fr)
+      grid-column-gap: 30px
+      grid-row-gap: 30px
+      &-item
+         list-style: none
+         margin: 0
+         padding: 0
+         position: relative
+         border-radius: 4px
+         object-fit: cover
+         overflow: hidden
+         &:hover, &:focus
+            background-color: rgba(0, 0, 0, 0.33)
+            box-shadow: 0px 18px 43px -7px rgba(0, 0, 0, 0.33)
+         a
+            text-decoration: none
+            display: inline-block
+         &-1
+            grid-area: 1 / 1 / 3 / 3
+            height: 510px
+         &-2
+            grid-area: 1 / 3 / 2 / 5
+            height: 240px
+         &-3
+            grid-area: 2 / 3 / 3 / 4
+            height: 240px
+         &-4
+            grid-area: 2 / 4 / 3 / 5
+            height: 240px
+      &-thumb
+         position: absolute
+         height: 100%
+         width: 100%
+         object-fit: cover
+         overflow: hidden
+         z-index: -1
+      &-permalink
+         position: absolute
+         width: 100%
+         height: 100%
+         left: 0
+         right: 0
+         bottom: 0
+         &:hover, &:focus
+            margin-bottom: 10px
+            transition: 0.3s
+      &-text
+         position: absolute
+         padding: 30px
+         bottom: 0
+         left: 0
+         right: 0
+      &-title
+         font-family: "Playfair Display", Arial, serif
+         font-size: 24px
+         color: rgba(255, 255, 255, 0.9)
+         margin: 0
+      &-category
+         color: rgba(255, 255, 255, 0.5)
+         font-size: 16px
