@@ -3,7 +3,6 @@
 <div class="archive-page">
    <div class="container">
 
-      <h1 class="archive-title"><?php single_cat_title() ?></h1>
       <h1 class="archive-title">
          <?php
             $queried_object = get_queried_object()->label;

@@ -1,0 +1,78 @@
+.pagination
+   width: 50%
+   margin-bottom: 75px
+   margin: auto
+   .nav-links
+      margin-top: 40px
+      background-color: #f1f1f1
+      border-radius: 10px
+      display: flex
+      justify-content: space-between
+      align-items: center
+      border: 1px solid #1FB57B
+      *
+         padding: 17px
+         text-decoration: none
+         font-size: 14px
+         line-height: 20px
+         color: #232D33
+         text-align: center
+         &:not(:last-child)
+            border-right: 1px solid #D9DADB
+         &:visited
+            color: #232D33
+      .prev
+         display: flex
+         align-items: center
+         justify-content: center
+         padding: 17px 70px
+         margin-right: auto
+         flex-grow: 1
+         color: #1FB57B
+         font-weight: 900
+         .grey-icons
+            padding: 0
+            color: #1FB57B
+            margin-right: 8px
+      .next
+         display: flex
+         align-items: center
+         justify-content: center
+         padding: 17px 70px
+         margin-left: auto
+         flex-grow: 1
+         color: #1FB57B
+         font-weight: 900
+         .grey-icons
+            padding: 0
+            color: #1FB57B
+            margin-left: 8px
+      .page-numbers
+         padding: 17px 25px
+      .current
+         color: #1FB57B
+         font-weight: 900
+      .dots
+         color: #939699
+   &-prev
+      &-icon
+         padding: 0
+         margin: 0
+         fill: #BCBFC2
+@media screen and ( max-width: 576px )
+   .pagination
+      .nav-links
+         .page-numbers
+            padding: 17px 20px
+         .current
+            color: #1FB57B
+         .dots
+            display: none
+@media screen and ( max-width: 400px )
+   .pagination
+      .nav-links
+         .page-numbers
+            padding: 20px 17px
+         .next, .prev
+            .grey-icons
+               display: none
