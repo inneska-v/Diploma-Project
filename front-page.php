@@ -2,27 +2,7 @@
 
 <div class="hero">
    <div class="container">
-      <?php global $post;
-
-         $query = new WP_Query( [
-            'posts_per_page' => 1,
-            'category_name' => 'front-page-title',
-         ] );
-
-         if ( $query->have_posts() ) {
-            while ( $query->have_posts() ) {
-               $query->the_post();
-               ?>
-                  <h1 class="hero-title"><?php the_title(); ?></h1>
-               <!-- Вывода постов, функции цикла: the_title() и т.д. -->
-               <?php 
-            }
-         } else { ?>
-            Добавьте, пожалуйста, заголовок!
-         <?php }
-
-         wp_reset_postdata(); // Сбрасываем $post
-      ?>
+      <h1 class="hero-title"><?php echo get_post_meta(get_the_ID(), 'main-title', true) ?></h1>
 
       <ul class="hero-articles">
          <?php		
@@ -142,10 +122,8 @@
 
 <div class="whywe">
    <div class="container">
-      <h2 class="whywe-title">Почему мы?</h2>
-      <div class="whywe-description">
-         Хотите узнать наши основные преимуещства из-за которых нас выбирают наши клиенты и возвращаются вновь?
-      </div>
+      <h2 class="whywe-title"><?php echo get_post_meta(get_the_ID(), 'why-we-title', true) ?></h2>
+      <div class="whywe-description"><?php echo get_post_meta(get_the_ID(), 'why-we-opisanie', true) ?></div>
       <!-- /.whywe-description -->
 
       <div class="whywe-features">
@@ -155,10 +133,8 @@
                   <use xlink:href="<?php echo get_template_directory_uri() ?>/assets/images/sprite.svg#graph"></use>
                </svg>
             </div>
-            <h3 class="whywe-features-title">Finance Dashboard</h3>
-            <p class="whywe-features-text">
-               Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.
-            </p>   
+            <h3 class="whywe-features-title"><?php echo get_post_meta(90, 'feature-title-1', true) ?></h3>
+            <p class="whywe-features-text"><?php echo get_post_meta(90, 'feature-text-1', true) ?></p>
          </div>
 
          <div class="whywe-features-item">
@@ -167,10 +143,8 @@
                   <use xlink:href="<?php echo get_template_directory_uri() ?>/assets/images/sprite.svg#heart"></use>
                </svg>
             </div>
-            <h3 class="whywe-features-title">Finance Dashboard</h3>
-            <p class="whywe-features-text">
-               Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.
-            </p>   
+            <h3 class="whywe-features-title"><?php echo get_post_meta(90, 'feature-title-2', true) ?></h3>
+            <p class="whywe-features-text"><?php echo get_post_meta(90, 'feature-text-2', true) ?></p> 
          </div>
          
          <div class="whywe-features-item">
@@ -179,10 +153,8 @@
                   <use xlink:href="<?php echo get_template_directory_uri() ?>/assets/images/sprite.svg#key"></use>
                </svg>
             </div>
-            <h3 class="whywe-features-title">Finance Dashboard</h3>
-            <p class="whywe-features-text">
-               Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.
-            </p>   
+            <h3 class="whywe-features-title"><?php echo get_post_meta(90, 'feature-title-3', true) ?></h3>
+            <p class="whywe-features-text"><?php echo get_post_meta(90, 'feature-text-3', true) ?></p>  
          </div>
       </div>
       <!-- /.whywe-features -->
@@ -193,95 +165,54 @@
 
 <div class="blog-articles">
    <div class="container">
-      <h2 class="blog-articles-title">Блог</h2>
+      <h2 class="blog-articles-title"><?php echo get_post_meta(get_the_ID(), 'blog-title', true) ?></h2>
 
       <div class="blog-articles-wrapper">
-         <div class="blog-articles-item">
-            <a href="#" class="blog-articles-permalink">
-               <img src="<?php if( has_post_thumbnail() ) {
-                  echo get_the_post_thumbnail_url();
-               }
-               else {
-                  echo get_template_directory_uri() .'/assets/images/img-default.png';
-               } ?>" alt="<?php get_the_title() ?>" class="blog-articles-item-image">
-               <h3 class="blog-articles-item-title">New iPhone 6 Released</h3>
-            </a>
-            <!-- /.blog-articles-permalink -->
+         <?php
+         $args = array(
+            'posts_per_page' => 3,
+            'post_type' => 'blog',
+         );
+         $products = new WP_Query( $args );
+         if( $products->have_posts() ) {
+            while( $products->have_posts() ) {
+            $products->the_post();
+         ?>
+            <div class="blog-articles-item">
+               <a href="<?php the_permalink() ?>" class="blog-articles-permalink">
+                  <img src="<?php if( has_post_thumbnail() ) {
+                     echo get_the_post_thumbnail_url();
+                  }
+                  else {
+                     echo get_template_directory_uri() .'/assets/images/img-default.png';
+                  } ?>" alt="<?php get_the_title() ?>" class="blog-articles-item-image">
+                  <h3 class="blog-articles-item-title"><?php echo mb_strimwidth(get_the_title(), 0, 40, '...') ?></h3>
+               </a>
+               <!-- /.blog-articles-permalink -->
 
-            <div class="blog-articles-text">
-               Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.
+               <div class="blog-articles-text"><?php echo mb_strimwidth(get_the_excerpt(), 0, 225, '...') ?></div>
+               
+               <a href="<?php the_permalink() ?>" class="blog-articles-button">
+                  Узнать больше
+                  <div class="blog-articles-button-arrow">
+                     <svg width="15" height="15" class="icon comments-icon">
+                        <use xlink:href="<?php echo get_template_directory_uri() ?>/assets/images/sprite.svg#right-arrow"></use>
+                     </svg>
+                  </div>
+               </a>
             </div>
-            <!-- /.blog-articles-text -->
-            
-            <a href="#" class="blog-articles-button">
-               Узнать больше
-               <div class="blog-articles-button-arrow">
-                  <svg width="15" height="15" class="icon comments-icon">
-                     <use xlink:href="<?php echo get_template_directory_uri() ?>/assets/images/sprite.svg#right-arrow"></use>
-                  </svg>
-               </div>
-            </a>
-         </div>
-         <!-- /.blog-articles-item -->
-
-         <div class="blog-articles-item">
-            <a href="#" class="blog-articles-permalink">
-               <img src="<?php if( has_post_thumbnail() ) {
-                  echo get_the_post_thumbnail_url();
+            <!-- /.blog-articles-item -->
+         <?php
                }
-               else {
-                  echo get_template_directory_uri() .'/assets/images/img-default.png';
-               } ?>" alt="<?php get_the_title() ?>" class="blog-articles-item-image">
-               <h3 class="blog-articles-item-title">Start your day with a beautiful appearance</h3>
-            </a>
-            <!-- /.blog-articles-permalink -->
-
-            <div class="blog-articles-text">
-               Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.
-            </div>
-            <!-- /.blog-articles-text -->
-            
-            <a href="#" class="blog-articles-button">
-               Узнать больше
-               <div class="blog-articles-button-arrow">
-                  <svg width="15" height="15" class="icon comments-icon">
-                     <use xlink:href="<?php echo get_template_directory_uri() ?>/assets/images/sprite.svg#right-arrow"></use>
-                  </svg>
-               </div>
-            </a>
-         </div>
-         <!-- /.blog-articles-item -->
-
-         <div class="blog-articles-item">
-            <a href="#" class="blog-articles-permalink">
-               <img src="<?php if( has_post_thumbnail() ) {
-                  echo get_the_post_thumbnail_url();
-               }
-               else {
-                  echo get_template_directory_uri() .'/assets/images/img-default.png';
-               } ?>" alt="<?php get_the_title() ?>" class="blog-articles-item-image">
-               <h3 class="blog-articles-item-title">Bookmarksgrove right</h3>
-            </a>
-            <!-- /.blog-articles-permalink -->
-
-            <div class="blog-articles-text">
-               Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.
-            </div>
-            <!-- /.blog-articles-text -->
-            
-            <a href="#" class="blog-articles-button">
-               Узнать больше
-               <div class="blog-articles-button-arrow">
-                  <svg width="15" height="15" class="icon comments-icon">
-                     <use xlink:href="<?php echo get_template_directory_uri() ?>/assets/images/sprite.svg#right-arrow"></use>
-                  </svg>
-               </div>
-            </a>
-         </div>
-         <!-- /.blog-articles-item -->
+            }
+            else {
+               echo 'О нет! К сожалению, нет ни одной записи в блоге. Добавьте пару штук чтобы они тут появились! :)';
+            }
+         ?>
 
       </div>
       <!-- /.blog-articles-wrapper -->
+
    </div>
    <!-- /.container -->
 </div>
@@ -289,37 +220,43 @@
 
 <div class="testimonials">
    <div class="container">
-      <h2 class="testimonials-title">Отзывы</h2>
-      <p class="testimonials-description">
-         Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.
-      </p>
+      <h2 class="testimonials-title"><?php echo get_post_meta(90, 'otzyvy-title', true) ?></h2>
+      <p class="testimonials-description"><?php echo get_post_meta(90, 'otzyvy-opisanie', true) ?></p>
 
       <div class="testimonials-wrapper">
-         <div class="testimonials-item">
-            <div class="testimonials-item-quote">
-               <svg width="28" height="30" fill="#bbc2ca" class="icon comments-icon">
-                  <use xlink:href="<?php echo get_template_directory_uri() ?>/assets/images/sprite.svg#quote"></use>
-               </svg>
+         <?php
+         $args = array(
+            'posts_per_page' => 2,
+            'orderby'   => 'rand',
+            'post_type' => 'otzyvy',
+         );
+         $products = new WP_Query( $args );
+         if( $products->have_posts() ) {
+            while( $products->have_posts() ) {
+            $products->the_post();
+         ?>
+            <div class="testimonials-item">
+               <div class="testimonials-item-quote">
+                  <svg width="28" height="30" fill="#bbc2ca" class="icon comments-icon">
+                     <use xlink:href="<?php echo get_template_directory_uri() ?>/assets/images/sprite.svg#quote"></use>
+                  </svg>
+               </div>
+               <p class="testimonials-item-text">
+                  <?php echo mb_strimwidth(get_the_excerpt(), 0, 300, '...') ?>
+               </p>
+               <span class="testimonials-item-author">
+                  <?php echo mb_strimwidth(get_the_title(), 0, 50, '...') ?>
+               </span>
             </div>
-            <p class="testimonials-item-text">
-               Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.
-            </p>
-            <span class="testimonials-item-author">Athan Smith</span>
-         </div>
-         <!-- /.testimonials-item -->
-
-         <div class="testimonials-item">
-            <div class="testimonials-item-quote">
-               <svg width="28" height="30" fill="#bbc2ca" class="icon comments-icon">
-                  <use xlink:href="<?php echo get_template_directory_uri() ?>/assets/images/sprite.svg#quote"></use>
-               </svg>
-            </div>
-            <p class="testimonials-item-text">
-               Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.
-            </p>
-            <span class="testimonials-item-author">Athan Smith</span>
-         </div>
-         <!-- /.testimonials-item -->
+            <!-- /.testimonials-item -->
+         
+         <?php
+               }
+            }
+            else {
+               echo 'О нет! К сожалению, нет ни одного отзыва. Добавьте пару штук чтобы они тут появились! :)';
+            }
+         ?>
 
       </div>
       <!-- /.testimonials-wrapper -->

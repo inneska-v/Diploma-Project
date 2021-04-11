@@ -82,6 +82,10 @@ body {
   margin: auto;
 }
 
+.page {
+  margin-bottom: 0;
+}
+
 .hero {
   margin-top: 2px;
   border-top: 1px solid rgba(0, 0, 0, 0.1);
@@ -253,7 +257,7 @@ body {
 }
 
 .whywe-features-item {
-  width: 32%;
+  width: 31%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -286,7 +290,8 @@ body {
 
 .whywe-features-text {
   color: rgba(255, 255, 255, 0.7);
-  text-align: center;
+  text-align: justify;
+  text-align-last: start;
   margin: 0;
 }
 
@@ -453,9 +458,6 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
@@ -477,6 +479,9 @@ body {
   background: rgba(45, 64, 89, 0.06);
   padding: 40px 30px;
   border-radius: 4px;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
 .testimonials-item-quote {
@@ -514,4 +519,124 @@ body {
 .footer {
   padding: 112px 0;
   background-color: #262626;
+}
+
+.footer-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.footer-aboutus-title, .footer-portfolio-title, .footer-social-title {
+  font-size: 18px;
+  color: rgba(255, 255, 255, 0.8);
+  font-family: "Playfair Display", Arial, serif;
+  font-weight: 400;
+  margin: 0 0 30px 0;
+  letter-spacing: 1px;
+}
+
+.footer-aboutus-text, .footer-portfolio-text, .footer-social-text {
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.7;
+  color: #7f7f7f;
+}
+
+.footer-aboutus {
+  width: 260px;
+  margin-right: 100px;
+}
+
+.footer-portfolio {
+  width: 450px;
+  margin-right: 100px;
+}
+
+.footer-portfolio-text ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.footer-portfolio-text ul li {
+  margin-bottom: 7px;
+}
+
+.footer-portfolio-text a {
+  padding: 0;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.7;
+  color: #7f7f7f;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.footer-portfolio-text a:hover {
+  color: #ffffff;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.footer-social {
+  width: 190px;
+}
+
+.footer-social-text {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 18px;
+}
+
+.footer-social a {
+  height: 18px;
+  text-decoration: none;
+  font-size: 16px;
+  color: #7f7f7f;
+  margin-bottom: 15px;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.footer-social a:hover {
+  color: #ffffff;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.footer-social a:hover svg {
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  fill: #ffffff;
+}
+
+.footer-social-name {
+  margin-bottom: 5px;
+}
+
+.footer-copyright {
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.7;
+  color: #7f7f7f;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  text-align: center;
+  padding-top: 40px;
+  margin-top: 70px;
+}
+
+.twitter-icon, .facebook-icon, .instagram-icon {
+  fill: #7f7f7f;
+  margin-right: 20px;
 }
