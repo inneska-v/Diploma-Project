@@ -7,23 +7,23 @@
  * @package universal-theme
  */
 
-get_header();
+get_header('post');
 ?>
 
-	<div class="container">
-      <main id="primary" class="site-main page404">
+   <main id="primary" class="site-main page404">
+      <div class="container">
 
          <section class="error-404 not-found">
-            <h1 class="page404-title"><?php esc_html_e( 'Oops! That page can&rsquo;t be found.', 'universal' ); ?></h1>
+            <h1 class="page404-title">Ой, такой страницы не существует</h1>
 
-            <p><?php esc_html_e( 'It looks like nothing was found at this location. Maybe try one of the links below or a search?', 'universal' ); ?></p>
+            <p class="page404-description">Ничего небыло найдено на этой странице. Попробуете найти что-то подходящее ниже?</p>
 
             <div class="page404-content">
 
                <?php the_widget( 'WP_Widget_Recent_Posts' ); ?>
 
                <div class="widget widget_categories widget_categories__search">
-                  <h2 class="widget-title"><?php esc_html_e( 'Most Used Categories', 'universal' ); ?></h2>
+                  <h2 class="widget-title"><?php esc_html_e( 'Популярные категории', 'universal' ); ?></h2>
                   <ul>
                      <?php
                      wp_list_categories(
@@ -42,20 +42,18 @@ get_header();
                
                <?php
                /* translators: %1$s: smiley */
-               $universal_example_archive_content = '<p class="archive_search">' . sprintf( esc_html__( 'Try looking in the monthly archives. %1$s', 'universal' ), convert_smilies( ':)' ) ) . '</p>';
+               $universal_example_archive_content = '<p class="archive_search">' . sprintf( esc_html__( 'Попробуйте заглянуть в наш архив за месяц %1$s', 'lesser' ), convert_smilies( ':)' ) ) . '</p>';
                the_widget( 'WP_Widget_Archives', 'dropdown=1', "after_title=</h2>$universal_example_archive_content" ); '</div>'
                ?>
                
-               <?php
-               the_widget( 'WP_Widget_Tag_Cloud' );
-               ?>
+               <?php the_widget( 'WP_Widget_Tag_Cloud' ); ?>
 
             </div><!-- .page404-content -->
          </section><!-- .error-404 -->
 
-      </main><!-- #main -->
-   </div>
-   <!-- .container -->
+      </div>
+      <!-- .container -->
+   </main><!-- #main -->
 
 <?php
 get_footer();

@@ -1,4 +1,4 @@
-<?php get_header() ?>
+<?php get_header('post'); ?>
 
 <div class="archive-page">
    <div class="container">
