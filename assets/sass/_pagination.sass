@@ -10,6 +10,7 @@
       justify-content: space-between
       align-items: center
       border: 1px solid #1FB57B
+      overflow: hidden
       *
          padding: 17px
          text-decoration: none
@@ -49,9 +50,15 @@
             margin-left: 8px
       .page-numbers
          padding: 17px 25px
-      .current
          color: #1FB57B
          font-weight: 900
+         &:hover
+            background-color: #e6ece4
+      .current
+         font-weight: 900
+         color: #939699
+         &:hover
+            background-color: #f1f1f1
       .dots
          color: #939699
    &-prev
@@ -61,11 +68,12 @@
          fill: #BCBFC2
 @media screen and ( max-width: 576px )
    .pagination
+      width: 100%
       .nav-links
          .page-numbers
             padding: 17px 20px
-         .current
-            color: #1FB57B
+            .grey-icons
+               display: none
          .dots
             display: none
 @media screen and ( max-width: 400px )

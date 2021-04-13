@@ -23,12 +23,12 @@ article
          justify-content: space-between
          align-items: self-start
       &-text
-         width: 780px
+         width: 68%
          p
             &:first-child
                margin-top: 0
       &-sidebar
-         width: 340px
+         width: 30%
          border-left: 1px solid rgba(0, 0, 0, 0.1)
          padding: 0 15px 30px 20px
          .sidebar
@@ -57,3 +57,21 @@ article
             padding: 0
             &:hover
                color: #1FB57B
+@media screen and ( max-width: 1024px )
+   .post
+      &-header
+         &-title
+            width: 90%
+            margin: auto
+            margin-bottom: 30px
+      &-content
+         &-wrapper
+            flex-direction: column
+         &-text
+            width: 100%
+         &-sidebar
+            width: 100%
+            padding-left: 0
+            border-left: none
+   article
+      padding: 56px 0
